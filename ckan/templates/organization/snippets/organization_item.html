@@ -1,0 +1,36 @@
+{% set url=h.url_for(organization.type ~ '.read', id=organization.name) %}
+{% block organization_item %}
+<section class="group-list module module-narrow module-shallow">
+  {% block organization_item_header %}
+  <header class="module-heading">
+    {% block organization_item_header_image %}
+    <a class="module-image" href="{{ url }}">
+      <img src="{{ organization.image_display_url or h.url_for_static('/base/images/placeholder-organization.png') }}"
+        alt="{{ organization.name }}" />
+    </a>
+    {% endblock %}
+    {% block title %}
+    <h2 class="media-heading">{{ organization.display_name }}</h2>
+    {% endblock %}
+    {% block description %}
+    {% if organization.description %}
+    <p class="media-description">{{ h.markdown_extract(organization.description, extract_length=80) }}</p>
+    {% endif %}
+    {% endblock %}
+    {% block datasets %}
+    {% if organization.package_count %}
+      <p style="margin-left:65px">{{ ungettext('{num} Dataset', '{num} Datasets', organization.package_count).format(num=organization.package_count) }}</p>
+    {% else %}
+      <p style="margin-left:65px">{{ _('0 Datasets') }}</p>
+    {% endif %}
+  {% endblock %}
+  </header>
+  {% endblock %}
+  {% block organization_item_content %}
+  {% set list_class = "list-unstyled dataset-list" %}
+  {% set item_class = "dataset-item module-content" %}
+  {% snippet 'snippets/package_list.html', packages=organization.packages, list_class=list_class, item_class=item_class
+  %}
+  {% endblock %}
+</section>
+{% endblock %}

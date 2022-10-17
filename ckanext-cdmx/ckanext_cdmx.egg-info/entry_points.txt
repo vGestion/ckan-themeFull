@@ -1,0 +1,7 @@
+
+        [ckan.plugins]
+        cdmx=ckanext.cdmx.plugin:CdmxPlugin
+
+        [babel.extractors]
+        ckan = ckan.lib.extract:extract_ckan
+    

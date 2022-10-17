@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "Gotham";
+  src: url(/fonts/Gotham-Black.otf);
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url(/fonts/Gotham-Bold.otf);
+  font-weight: 700;
+}
+
+.font-gotham {
+  font-family: "Gotham";
+}
+
+.font-roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+.font-source-sans-pro {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.font-inter {
+  font-family: "Inter", sans-serif
+}
+
+.font-weight-semibold {
+  font-weight: 600;
+}
+
+.text-base {
+  font-size: 16px;
+}
+
+.text-sm {
+  font-size: 14px;
+}
+
+.text-lg {
+  font-size: 18px;
+}
+
+.text-2xl {
+  font-size: 24px;
+}
+
+.text-3xl {
+  font-size: 30px;
+}
+
+@media (min-width: 1024px) {
+  .lg\:text-left {
+    text-align: left !important;
+  }
+}
